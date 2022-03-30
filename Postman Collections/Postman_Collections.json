@@ -1,0 +1,79 @@
+{
+  "info": {
+    "_postman_id": "d51468c2-3cc1-4ad1-9826-c7826cac1664",
+    "name": "mockyio",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "check api",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "f3f9db24-5cae-4561-bf39-5be6a015aea9",
+            "exec": [
+              "let jsonData = pm.response.json();\r",
+              "\r",
+              "pm.test(\"Response time is less than 200ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+              "});\r",
+              "\r",
+              "\r",
+              "let jsondataStatus = jsonData.prefs.comments.status;\r",
+              "console.log(jsonData.prefs.comments.status);\r",
+              "pm.test(\"comments should be disabled\", function(){\r",
+              "pm.expect(jsondataStatus).to.eql(\"disabled\");\r",
+              "});\r",
+              "//loop over objects\r",
+              "let memberStatus;\r",
+              "\r",
+              "for(let key in jsonData.limits){\r",
+              "    \r",
+              "        console.log(key,jsonData.limits[key]);\r",
+              "        if (jsonData.limits[key].hasOwnProperty('boards')){\r",
+              "            memberStatus = jsonData.limits[key].boards.totalPerMember.status;\r",
+              "        }\r",
+              "    \r",
+              "}\r",
+              "\r",
+              "//console.log(\"this is current memeber status: \"+ memberStatus );\r",
+              "\r",
+              "pm.test(\"status should be ok\", function(){\r",
+              " pm.expect(memberStatus).to.eql(\"ok\");\r",
+              "});\r",
+              "\r",
+              "let headerSozu;\r",
+              "pm.test(\"header Sozu id\", function(){\r",
+              " headerSozu = pm.response.headers.get('Sozu-Id');       \r",
+              " pm.expect(pm.response.headers.get('Sozu-Id')).to.eql(headerSozu);\r",
+              "});\r",
+              "\r",
+              "\r",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "e23adeda-b90d-4ed4-b688-573a76b787d9",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseMocky}}/5365e805-577a-41bb-979a-8b31f3d98102"
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "id": "f82abb30-6166-4f38-9ca3-71933ec93997",
+      "key": "baseMocky",
+      "value": "https://run.mocky.io/v3",
+      "type": "string"
+    }
+  ]
+}
