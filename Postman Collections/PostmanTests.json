@@ -7,7 +7,7 @@
 	"item": [
 		{
 			"name": "Post message to wall",
-			"_postman_id": "84a8e319-a13e-4878-9d36-aecf9656a152",
+			"id": "84a8e319-a13e-4878-9d36-aecf9656a152",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -29,10 +29,7 @@
 							"type": "text",
 							"disabled": true
 						}
-					],
-					"options": {
-						"urlencoded": {}
-					}
+					]
 				},
 				"url": {
 					"raw": "https://graph.facebook.com/v14.0/100458682735070/feed?message=Test%20API%2022&access_token={{fbToken}}",
@@ -110,7 +107,7 @@
 					}
 				}
 			],
-			"_postman_id": "770b3190-f1dd-4449-9a87-35488883ea7c",
+			"id": "770b3190-f1dd-4449-9a87-35488883ea7c",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -141,6 +138,18 @@
 						}
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"id": "2cb9583f-f23d-4fbb-b3fa-179cd3409cfa",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": []
 			},
 			"response": []
 		}
@@ -175,7 +184,7 @@
 	],
 	"variable": [
 		{
-			"id": "1369c35e-fccf-40a1-a33c-8b3518302406",
+			"id": "6d2092fb-955d-4c6d-9591-cd065b28e454",
 			"key": "fbToken",
 			"value": "EAAEV2tjWoDkBAN4Njo2e0dN4A0Sm3tGx2VAcsdUssZCWGXmD5Do98tDcQ4SOIBwJ3SHef9ZA25BfHUSZAZCxoHEZBuvdn0qO4grSx7ZCiZBuVSZBFDfv1Quj1PiEka3ToVMnMjXsAZBItmg4FH0RxAhB5sZAtz87XBmNyI5P8hCgt3dQCQmBL6pNYo",
 			"type": "string"
